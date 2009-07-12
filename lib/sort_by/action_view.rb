@@ -8,7 +8,7 @@ module ActionView
       :names => {}
     }
     
-    def paginated_sort_table(collection, method_options={}, options={})
+    def paginated_sort_table(collection, method_options={}, options={}, image_type="jpg")
       method_options = method_options.merge!(@@default_method_options)
       methods = method_options[:only] if !method_options[:only].empty?
       methods ||= collection.first.attributes.keys if collection.first.respond_to?(:attributes)
@@ -28,8 +28,8 @@ module ActionView
         order = request.params[:order] == "asc" && request.params[:sort_by] == method ? "desc" : "asc"
         o += "      
       <td>
-        #{link_to(title, url_for(request1.params.merge(:sort_by => method, :order => order)))}
-        #{image_tag("sort_" + order)}
+        #{link_to(title, url_for(request.params.merge(:sort_by => method, :order => order)))}
+        #{image_tag("sort_" + order + "." + image_type)}
       </td>\n"
       end
           
