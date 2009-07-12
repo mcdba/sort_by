@@ -13,7 +13,7 @@ Another method is `paginated_sort_by`. This takes the same arguments as the abov
 
 ## ActionView
 
-The great stuff comes in the view. This plugin provides a method called `paginated_sort_table`. This generates a table like the ["one seen here"](http://skitch.com/radarlistener/bam21/blogs-index "one seen here"). This uses the generated scaffold from an everyday Rails application. In my index action in the controller I've edited it to now be:
+The great stuff comes in the view. This plugin provides a method called `paginated_sort_table`. This generates a table like the [one seen here](http://skitch.com/radarlistener/bam21/blogs-index "one seen here"). This uses the generated scaffold from an everyday Rails application. In my index action in the controller I've edited it to now be:
    
     def index
       @blogs = Blog.paginated_sort_by(params[:sort_by] || "id", params[:order])
@@ -24,7 +24,7 @@ And my corresponding index template:
     <h1>Listing blogs</h1>
     <%= paginated_sort_table(@blogs) %>
     
-That's all! Now if I were to have more than 10 blogs there I would be given pagination icons above and below the table ["as seen here"](http://skitch.com/radarlistener/bam4m/blogs-index "as seen here").
+That's all! Now if I were to have more than 10 blogs there I would be given pagination icons above and below the table [as seen here](http://skitch.com/radarlistener/bam4m/blogs-index "as seen here").
 
 ## More ActionView
 
@@ -52,7 +52,7 @@ In the last options hash:
 
     <%= paginated_sort_table(@blogs, {}, { :options => "go here" }) %>
     
-Check out the ["awesome will paginate docs"](http://wiki.github.com/mislav/will_paginate) on what these options are.
+Check out the [awesome will paginate docs](http://wiki.github.com/mislav/will_paginate) on what these options are.
 
 ## Sorting Icons
 
