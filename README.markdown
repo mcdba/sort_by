@@ -52,8 +52,7 @@ In the last options hash:
 
     <%= paginated_sort_table(@blogs, {}, { :options => "go here" }) %>
     
-Check out the awesome will paginate docs on what these options are
-
+Check out the ["awesome will paginate docs"](http://wiki.github.com/mislav/will_paginate) on what these options are.
 
 ## Sorting Icons
 
