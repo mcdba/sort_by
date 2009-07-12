@@ -17,14 +17,20 @@ module ActionView
       
       links = will_paginate(collection, options)
       o = links
+      # There may be no page links.
+      o ||= ""
       o += "\n<table class='sort_by'>
   <thead>
     <tr>\n"
       methods.each do |method|
         title = method_options[:names][method] || method
         title = title.titleize if method_options[:titleize]
-        order = request.params[:order] == "asc" && request.params[:sort_by] == "method" ? "desc" : "asc"
-        o += "      <td>#{link_to(title, url_for(request.params.merge(:sort_by => method, :order => order)))}</td>\n"
+        order = request.params[:order] == "asc" && request.params[:sort_by] == method ? "desc" : "asc"
+        o += "      
+      <td>
+        #{link_to(title, url_for(request1.params.merge(:sort_by => method, :order => order)))}
+        #{image_tag("sort_" + order)}
+      </td>\n"
       end
           
       o += "    </tr>
@@ -41,7 +47,7 @@ module ActionView
       
       o += "  </tbody>
 </table>\n"  
-      o += links
+      o += links.to_s
     end
   end
 end
