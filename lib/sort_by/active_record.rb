@@ -23,6 +23,7 @@ module ActiveRecord
   
       # For interaction with will_paginate
       def paginated_sort_by(field, direction='asc', options = {})
+        options[:page] = 1 if options[:page].nil? || options[:page].to_i < 1
         sort_by(field, direction) do
           paginate(options)
         end
