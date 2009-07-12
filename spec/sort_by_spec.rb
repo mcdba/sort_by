@@ -45,6 +45,10 @@ describe ActiveRecord do
     @records.last.should eql(Post.find(16))
   end
   
+  it "should not be able to sort based on a false field" do
+    lambda { Post.sort_by(:pancakes) }.should raise_error(ActiveRecord::SortBy::InvalidField)
+  end
+  
   
 end
 
