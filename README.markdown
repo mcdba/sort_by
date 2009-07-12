@@ -1,6 +1,6 @@
 # sort_by
 
-Sort By is a plugin that allows you to generate a table that has sortable columns.
+Sort By is a plugin that allows you to generate a table that has sortable columns. It'll probably only work on the latest version of Rails, which is what you should be using. No excuses, thanks.
 
 ## ActiveRecord
 
