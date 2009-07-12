@@ -24,8 +24,40 @@ And my corresponding index template:
     <h1>Listing blogs</h1>
     <%= paginated_sort_table(@blogs) %>
     
-That's all! Now if I were to have more than 10 blogs there I would be given pagination icons above and below the table
+That's all! Now if I were to have more than 10 blogs there I would be given pagination icons above and below the table ["as seen here"](http://skitch.com/radarlistener/bam4m/blogs-index "as seen here").
+
+## More ActionView
+
+By default it will give you a table of all the fields in no particular order. To fix this, call the method like this:
+
+    <%= paginated_sort_table(@blogs, :only => ["field1", "field2"]) %>
+    
+The fields will be displayed in order that you specify them.
+
+If you only want to remove some fields there's the `:except` option:
+
+    <%= paginated_sort_table(@blogs, :except => ["field1", "field2"]) %>
+    
+To specify alternative names to the fields pass in the `:names` option:
+    
+    <%= paginated_sort_table(@blogs, :names => { :field1 => "Field 2 in disguise"}) %>
+
+If you don't want your fields to be titleized just say so:
+
+    <%= paginated_sort_table(@blogs, :titleize => false) %>
+    
+## Will Paginate Options Go Where?!
+
+In the last options hash:
+
+    <%= paginated_sort_table(@blogs, {}, { :options => "go here" }) %>
+    
+Check out the awesome will paginate docs on what these options are
 
 
+## Sorting Icons
 
- You'll have to provide your own sorting icons, though.
+You'll have to provide your own sorting icons, though. The names are sort\_asc and sort\_desc and the extesnion defaults to `jpg` but you can change it by specifying it in the last options hash:
+
+      <%= paginated_sort_table(@blogs, {}, { :image_type => "png" }) %>
+      

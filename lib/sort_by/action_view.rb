@@ -8,7 +8,8 @@ module ActionView
       :names => {}
     }
     
-    def paginated_sort_table(collection, method_options={}, options={}, image_type="jpg")
+    def paginated_sort_table(collection, method_options={}, options={})
+      image_type = options.delete(:image_type) || "jpg"
       method_options = method_options.merge!(@@default_method_options)
       methods = method_options[:only] if !method_options[:only].empty?
       methods ||= collection.first.attributes.keys if collection.first.respond_to?(:attributes)
