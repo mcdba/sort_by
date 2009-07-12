@@ -5,6 +5,10 @@ class Post < ActiveRecord::Base
   def self.factory(text, created_at = nil)
     create!(:text => text, :created_at => created_at)
   end
+  
+  def self.per_page
+    10
+  end
 end
 
 class Tag < ActiveRecord::Base
