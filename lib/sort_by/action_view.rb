@@ -5,12 +5,13 @@ module ActionView
       :only => [],
       :except => [],
       :titleize => true,
-      :names => {}
+      :names => {},
+      :class => 'sort_by'
     }
     
     def paginated_sort_table(collection, method_options={}, options={})
       image_type = options.delete(:image_type) || "jpg"
-      method_options = method_options.merge!(@@default_method_options)
+      method_options = @@default_method_options.merge( method_options)
       methods = method_options[:only] if !method_options[:only].empty?
       methods ||= collection.first.attributes.keys if collection.first.respond_to?(:attributes)
       methods ||= []
@@ -20,7 +21,7 @@ module ActionView
       o = links
       # There may be no page links.
       o ||= ""
-      o += "\n<table class='sort_by'>
+      o += "\n<table class='#{method_options[:class]}'>
   <thead>
     <tr>\n"
       methods.each do |method|
