@@ -45,6 +45,9 @@ To specify alternative names to the fields pass in the `:names` option:
 If you don't want your fields to be titleized just say so:
 
     <%= paginated_sort_table(@blogs, :titleize => false) %>
+
+
+   <%= paginated_sort_table(@blogs,{:only=>[:field1,:field2],:names=>{:field1=>'Title',:field2=>'Description'},:class=>'blue',} %>
     
 ## Will Paginate Options Go Where?!
 
