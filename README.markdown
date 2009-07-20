@@ -47,6 +47,8 @@ If you don't want your fields to be titleized just say so:
     <%= paginated_sort_table(@blogs, :titleize => false) %>
    	
 	<%= paginated_sort_table(@blogs,{:only=>[:field1,:field2],:names=>{:field1=>'Title',:field2=>'Description'},:class=>'blue',} %>
+	
+	<%= paginated_sort_table @pages, {:only => [:title,:body], :names => {:title => 'Articles Title', :body => 'Articles Body'}, :class => 'blue', :header => 'Sample Header line', :footer => 'Sample footer line'} -%>
     
 ## Will Paginate Options Go Where?!
 
